@@ -97,7 +97,7 @@ alias tree='tree -a -I .git'
 
 # Add flags to existing aliases.
 alias ls="${aliases[ls]:-ls} -A"
-alias lx="exa -icons -a"
+alias lx="exa --icons -a"
 alias cat="bat"
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
