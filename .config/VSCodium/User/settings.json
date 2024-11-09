@@ -1,0 +1,155 @@
+{
+  // === Theme and Icon Theme ===
+  "workbench.colorTheme": "Aura Dark",
+  "workbench.iconTheme": "material-icon-theme",
+
+  // === Editor Font and Appearance ===
+  "editor.fontFamily": "Jetbrains Mono, 'Courier New', monospace", // Primary font: JetBrains Mono
+  "editor.fontLigatures": false,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 22, // Line height for better spacing
+  "editor.tabSize": 4,
+  "editor.cursorSmoothCaretAnimation": "on", // Smooth cursor movement
+  "editor.cursorBlinking": "smooth", // Smooth cursor blinking for visibility
+  "editor.smoothScrolling": true, // Smooth scrolling for a polished feel
+  "editor.wordWrap": "on", // Wrap long lines
+
+  // === Editor Guides and Navigation ===
+  "editor.guides.bracketPairs": true, // Highlight matching brackets
+  "editor.guides.indentation": true, // Show indentation guides for clean code structure
+
+  // === Editor Layout and Features ===
+  "editor.minimap.enabled": false,
+  "workbench.layoutControl.enabled": false,
+
+  // === Auto-Save and Formatting ===
+  "files.autoSave": "off",
+  "editor.formatOnSave": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // === Plugins ===
+  // Tabnine // Vim // Error Lens //
+  // Aura Theme // Material Icon Theme // Prettier //
+  // Python // Python Snippets 3 // Trailing Spaces //
+
+  "tabnine.experimentalAutoImports": true, // Enable auto-imports with Tabnine
+
+  // === Vim Extension Enhancements ===
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 7,
+  "extensions.experimental.affinity": { "vscodevim.vim": 1 }, // To improve performance
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true, // Highlight all search results in Vim search
+  "vim.incsearch": true, // Incremental search (shows matches as you type)
+  "vim.easymotion": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.smartcase": true, // Case-insensitive search unless uppercase is used
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5)",
+
+  // === Vim Key Bindings ===
+  "vim.leader": "<Space>",
+  "vim.handleKeys": {
+    "<C-a>": false, // VSCode: Select All
+    "<C-c>": false, // VSCode: Copy Selection
+    "<C-x>": false, // VSCode: Cut Selection
+
+    "<C-f>": false, // VSCode: Search
+    "<C-e>": false, // VSCode: Toggle Sidebar
+    "<C-t>": false, // VSCode: Toggle Terminal
+
+    "<C-w>": false, // Vscode: Run Active File
+
+    "<C-y>": false, // VSCode: Redo
+    "<C-z>": false, // VSCode: Undo
+
+    "<C-b>": false, // Vscode: Compare with Saved
+    "<C-p>": false, // VSCode: Paste
+
+    "<C-h>": false, // VSCode: Move to Left Window
+    "<C-j>": false, // VSCode: Move to Down Window
+    "<C-k>": false, // VSCode: Move to Up Window
+    "<C-l>": false // VSCode: Move to Right Window
+  },
+
+  // === Vim Normal Mode Key Bindings ===
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Indentation
+    { "before": ["S-tab"], "commands": ["editor.action.outdentLines"] },
+    { "before": ["tab"], "commands": ["editor.action.indentLines"] },
+
+    { "before": ["s"], "after": ["leader", "leader", "s"] }, // Navigation with Easy Motion
+
+    { "before": ["K"], "commands": ["lineBreakInsert"], "silent": true }, // K to Like Break Insert
+
+    // Navigate to Errors
+    { "before": ["leader", "["], "commands": ["editor.action.marker.prev"] },
+    { "before": ["leader", "]"], "commands": ["editor.action.marker.next"] },
+
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    }, // Code Action
+    {
+      "before": ["leader", "f", "f"],
+      "commands": ["editor.action.formatDocument"]
+    }, // Format File
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    }, // Show Definition
+
+    // Remove highlights of Vim search results
+    { "before": ["leader", "leader"], "commands": [":nohlsearch"] },
+
+    // Delete and copy lines
+    { "before": ["space", "d"], "after": ["d"] },
+    { "before": ["space", "D"], "after": ["D"] },
+
+    // Prevent copying on delete and change commands
+    { "before": ["c"], "after": ["\"", "_", "c"] },
+    { "before": ["C"], "after": ["\"", "_", "C"] },
+    { "before": ["c", "c"], "after": ["\"", "_", "c", "c"] },
+    { "before": ["d"], "after": ["\"", "_", "d"] },
+    { "before": ["D"], "after": ["\"", "_", "D"] },
+    { "before": ["d", "d"], "after": ["\"", "_", "d", "d"] },
+    { "before": ["x"], "after": ["\"", "_", "x"] },
+    { "before": ["X"], "after": ["\"", "_", "X"] },
+
+    // Split commands
+    { "before": ["leader", "v"], "commands": [":vsplit"] },
+    { "before": ["leader", "s"], "commands": [":split"] }
+  ],
+
+  // === Vim Visual Mode Key Bindings ===
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // Indentation
+    { "before": ["S-tab"], "commands": ["editor.action.outdentLines"] },
+    { "before": ["tab"], "commands": ["editor.action.indentLines"] },
+
+    // Line movement
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+
+    // Delete and copy lines
+    { "before": ["space", "d"], "after": ["d"] },
+    { "before": ["space", "D"], "after": ["D"] },
+
+    // Prevent copying on delete and change commands
+    { "before": ["c"], "after": ["\"", "_", "c"] },
+    { "before": ["C"], "after": ["\"", "_", "C"] },
+    { "before": ["d"], "after": ["\"", "_", "D"] },
+    { "before": ["D"], "after": ["\"", "_", "D"] },
+    { "before": ["x"], "after": ["\"", "_", "x"] },
+    { "before": ["X"], "after": ["\"", "_", "X"] },
+
+    // Paste without copying to clipboard
+    { "before": ["p"], "after": ["P"] },
+    { "before": ["P"], "after": ["p"] }
+  ],
+
+  // === Vim Insert Mode Key Bindings ===
+  "vim.insertModeKeyBindings": [{ "before": ["j", "j"], "after": ["<Esc>"] }]
+}
