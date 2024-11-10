@@ -1,0 +1,103 @@
+" Leader key
+let mapleader = " "
+
+" Redo
+nnoremap U <C-r>
+
+" General settings
+set scrolloff=7
+set relativenumber
+set showmode
+set clipboard+=unnamed
+set showcmd
+set visualbell
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+set matchpairs+=<:>
+set ideajoin
+
+" == Plugins ==
+set surround
+set highlightedyank
+set easymotion
+
+" Jump around with easymotion
+map s <Plug>(easymotion-s)
+
+" Comment lines
+map <leader>gc <action>(CommentByLineComment)
+
+" == Vim Normal Mode Key Bindings ==
+" Indentation
+nnoremap <Tab> >gv
+nnoremap <S-Tab> <gv
+
+" K to line break
+nnoremap K o<Esc>
+
+"// Navigate to Errors
+"   { "before": ["leader", "["], "commands": ["editor.action.marker.prev"] },
+"   { "before": ["leader", "]"], "commands": ["editor.action.marker.next"] },
+
+" Show definition
+nmap <leader>gh <Action>(QuickImplementations)
+
+" Code action
+nmap <leader>ca <Action>(ShowIntentionActions)
+
+" Format file
+nmap <leader>ff <Action>(ReformatCode)
+
+" Remove highlights of Vim search result
+nnoremap <leader><leader> :nohlsearch<CR>
+
+" Delete and copy lines
+nnoremap <leader>d d
+nnoremap <leader>D D
+
+" Prevent copying on delete and change commands
+nnoremap c "_c
+nnoremap C "_C
+nnoremap cc "_cc
+nnoremap d "_d
+nnoremap D "_D
+nnoremap dd "_dd
+nnoremap x "_x
+nnoremap X "_X
+
+" Split Window
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>s :split<CR>
+
+" == Visual Mode ==
+
+" Indentation
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+" Line Movement
+vmap J <Action>(MoveLineDown)
+vmap K <Action>(MoveLineUp)
+
+" Delete and copy lines
+vnoremap <leader>d d
+vnoremap <leader>D D
+
+" Prevent copying on delete and change commands
+vnoremap c "_c
+vnoremap C "_C
+vnoremap d "_d
+vnoremap D "_D
+vnoremap x "_x
+vnoremap X "_X
+
+" Paste without copying to clipboard
+vnoremap p P
+vnoremap P p
+
+" == Vim Insert Mode Key Bindings ==
+
+" jj to exit insert mode
+inoremap jj <Esc>
