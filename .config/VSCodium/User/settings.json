@@ -28,18 +28,21 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
 
   // === Plugins ===
   // Tabnine // Vim // Error Lens //
   // Aura Theme // Material Icon Theme // Prettier //
   // Python // Python Snippets 3 // Trailing Spaces //
 
-  "tabnine.experimentalAutoImports": true, // Enable auto-imports with Tabnine
+  // "tabnine.experimentalAutoImports": true, // Enable auto-imports with Tabnine
 
   // === Vim Extension Enhancements ===
   "editor.lineNumbers": "relative",
   "editor.cursorSurroundingLines": 7,
-  "extensions.experimental.affinity": { "vscodevim.vim": 1 }, // To improve performance
+  // "extensions.experimental.affinity": { "vscodevim.vim": 1 }, // To improve performance
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true, // Highlight all search results in Vim search
   "vim.incsearch": true, // Incremental search (shows matches as you type)
