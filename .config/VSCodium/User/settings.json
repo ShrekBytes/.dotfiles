@@ -1,28 +1,22 @@
 {
-  // === Theme and Icon Theme ===
+  // === Appearance ===
   "workbench.colorTheme": "Aura Dark",
   "workbench.iconTheme": "material-icon-theme",
-
-  // === Editor Font and Appearance ===
   "editor.fontFamily": "Jetbrains Mono, 'Courier New', monospace", // Primary font: JetBrains Mono
   "editor.fontLigatures": false,
   "editor.fontSize": 14,
   "editor.lineHeight": 22, // Line height for better spacing
   "editor.tabSize": 4,
+  "editor.minimap.enabled": false,
+  "workbench.layoutControl.enabled": false,
   "editor.cursorSmoothCaretAnimation": "on", // Smooth cursor movement
   "editor.cursorBlinking": "smooth", // Smooth cursor blinking for visibility
   "editor.smoothScrolling": true, // Smooth scrolling for a polished feel
-  "editor.wordWrap": "on", // Wrap long lines
-
-  // === Editor Guides and Navigation ===
+  "editor.wordWrap": "on",
   "editor.guides.bracketPairs": true, // Highlight matching brackets
   "editor.guides.indentation": true, // Show indentation guides for clean code structure
 
-  // === Editor Layout and Features ===
-  "editor.minimap.enabled": false,
-  "workbench.layoutControl.enabled": false,
-
-  // === Auto-Save and Formatting ===
+  // === Save and Formatting ===
   "files.autoSave": "off",
   "editor.formatOnSave": true,
   "[jsonc]": {
@@ -33,11 +27,12 @@
   },
 
   // === Plugins ===
-  // Codeium // Vim // Error Lens //
-  // Aura Theme // Material Icon Theme // Prettier //
-  // Python // Python Snippets 3 // Trailing Spaces //
-
-  // "tabnine.experimentalAutoImports": true, // Enable auto-imports with Tabnine
+  // Python // Python Debugger
+  // Live Server // Vim // Error Lens
+  // Ruff // Prettier // Trailing Spaces
+  // Auto Close Tag // Highlight Matching Tag
+  // Cody // Cline // SuperMaven // Continue // Qodo Gen
+  // Aura Theme // Cherry // Material Icon Theme // Neofloss
 
   // === Vim Extension Enhancements ===
   "editor.lineNumbers": "relative",
@@ -50,7 +45,7 @@
   "vim.camelCaseMotion.enable": true,
   "vim.smartcase": true, // Case-insensitive search unless uppercase is used
   "vim.highlightedyank.enable": true,
-  "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5)",
+  "vim.highlightedyank.color": "rgba(247, 118, 142, 0.5)",
 
   // === Vim Key Bindings ===
   "vim.leader": "<Space>",
@@ -79,6 +74,14 @@
 
   // === Vim Normal Mode Key Bindings ===
   "vim.normalModeKeyBindingsNonRecursive": [
+    // Use VSCode's native undo/redo stack instead of Vim's
+    { "before": ["u"], "commands": ["undo"] },
+    { "before": ["<C-r>"], "commands": ["redo"] },
+
+    // Navigate between open files/buffers using leader + h/l
+    { "before": ["leader", "h"], "commands": [":bprevious"] },
+    { "before": ["leader", "l"], "commands": [":bnext"] },
+
     // Indentation
     { "before": ["S-tab"], "commands": ["editor.action.outdentLines"] },
     { "before": ["tab"], "commands": ["editor.action.indentLines"] },
@@ -92,17 +95,25 @@
     { "before": ["leader", "]"], "commands": ["editor.action.marker.next"] },
 
     {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showHover"]
+    }, // Show Hover Info
+    {
+      "before": ["leader", "g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    }, // Show Definition
+    {
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
     }, // Code Action
     {
+      "before": ["leader", "g", "c"],
+      "commands": ["editor.action.commentLine"]
+    }, // Comment Line
+    {
       "before": ["leader", "f", "f"],
       "commands": ["editor.action.formatDocument"]
     }, // Format File
-    {
-      "before": ["g", "h"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
-    }, // Show Definition
 
     // Remove highlights of Vim search results
     { "before": ["leader", "leader"], "commands": [":nohlsearch"] },
@@ -132,9 +143,16 @@
     { "before": ["S-tab"], "commands": ["editor.action.outdentLines"] },
     { "before": ["tab"], "commands": ["editor.action.indentLines"] },
 
+    { "before": ["s"], "after": ["leader", "leader", "s"] }, // Navigation with Easy Motion
+
     // Line movement
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+
+    {
+      "before": ["leader", "g", "c"],
+      "commands": ["editor.action.commentLine"]
+    }, // Comment Line
 
     // Delete and copy lines
     { "before": ["space", "d"], "after": ["d"] },
@@ -154,5 +172,15 @@
   ],
 
   // === Vim Insert Mode Key Bindings ===
-  "vim.insertModeKeyBindings": [{ "before": ["j", "j"], "after": ["<Esc>"] }]
+  "vim.insertModeKeyBindings": [
+    { "before": ["j", "j"], "after": ["<Esc>"] } // Map "jj" to escape Insert mode
+  ],
+
+  // === Ai Plugins ===
+  "cody.autocomplete.enabled": false,
+  "cody.telemetry.level": "off",
+  "cody.commandCodeLenses": true,
+  "continue.enableTabAutocomplete": false,
+  "continue.telemetryEnabled": false,
+  "codium.codeCompletion.enable": false
 }
