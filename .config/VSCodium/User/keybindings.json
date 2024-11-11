@@ -13,33 +13,39 @@
     "command": "workbench.action.terminal.kill"
   },
   {
-    "key": "ctrl+shift+tab",
-    "command": "workbench.action.terminal.focusNext"
+    "key": "ctrl+shift+a",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
   },
-  // {
-  //   "key": "ctrl+shift+shift+tab",
-  //   "command": "workbench.action.terminal.focusPrevious"
-  // },
-
-  // Navigation
   {
-    "key": "ctrl-h",
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.togglePanel"
+  },
+
+  // Window Navigation
+  {
+    "key": "ctrl+h",
     "command": "workbench.action.navigateLeft"
   },
   {
-    "key": "ctrl-l",
+    "key": "ctrl+l",
     "command": "workbench.action.navigateRight"
   },
   {
-    "key": "ctrl-k",
+    "key": "ctrl+k",
     "command": "workbench.action.navigateUp"
   },
   {
-    "key": "ctrl-j",
+    "key": "ctrl+j",
     "command": "workbench.action.navigateDown"
   },
 
-  // File Explorer
+  // File Explorer Operations
   {
     "key": "r",
     "command": "renameFile",
@@ -86,14 +92,37 @@
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
   },
 
-  // Run current file
+  // Editor and Sidebar Controls
   {
     "key": "ctrl+w",
     "command": "workbench.action.terminal.runActiveFile"
   },
   {
     "key": "ctrl+e",
-    "command": "workbench.action.toggleSidebarVisibility"
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.files.action.focusFilesExplorer"
+      ]
+    },
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "sideBarFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible"
   },
   {
     "key": "ctrl+p",
