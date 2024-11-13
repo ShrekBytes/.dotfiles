@@ -166,7 +166,7 @@
     { "before": ["x"], "after": ["\"", "_", "x"] },
     { "before": ["X"], "after": ["\"", "_", "X"] },
 
-    // Paste without copying to clipboard
+    // Paste without copying to the clipboard
     { "before": ["p"], "after": ["P"] },
     { "before": ["P"], "after": ["p"] }
   ],
