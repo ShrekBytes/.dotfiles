@@ -29,20 +29,39 @@
 
   // Window Navigation
   {
-    "key": "ctrl+h",
+    "key": "ctrl+shift+h",
     "command": "workbench.action.navigateLeft"
   },
   {
-    "key": "ctrl+l",
+    "key": "ctrl+shift+l",
     "command": "workbench.action.navigateRight"
   },
   {
-    "key": "ctrl+k",
-    "command": "workbench.action.navigateUp"
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.navigateDown"
   },
   {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.navigateUp"
+  },
+
+  // Navigate between Suggestions
+  {
     "key": "ctrl+j",
-    "command": "workbench.action.navigateDown"
+    "command": "selectNextSuggestion"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion"
+  },
+  // Navigate between Errors
+  {
+    "key": "ctrl+h",
+    "command": "editor.action.marker.prev"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "editor.action.marker.next"
   },
 
   // File Explorer Operations
@@ -135,5 +154,13 @@
   {
     "key": "ctrl+space",
     "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+shift+space",
+    "command": "toggle.window.commandCenter"
+  },
+  {
+    "key": "ctrl+shift+space",
+    "command": "workbench.action.quickOpenWithModes"
   }
 ]
