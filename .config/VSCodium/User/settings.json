@@ -78,9 +78,9 @@
     { "before": ["u"], "commands": ["undo"] },
     { "before": ["<C-r>"], "commands": ["redo"] },
 
-    // Navigate between open files/buffers using leader + h/l
-    { "before": ["leader", "h"], "commands": [":bprevious"] },
-    { "before": ["leader", "l"], "commands": [":bnext"] },
+    // Half page up/down and center with zz
+    { "before": ["<C-u>"], "after": ["<C-u>", "z", "z"] },
+    { "before": ["<C-d>"], "after": ["<C-d>", "z", "z"] },
 
     // Indentation
     { "before": ["S-tab"], "commands": ["editor.action.outdentLines"] },
@@ -90,9 +90,9 @@
 
     { "before": ["K"], "commands": ["lineBreakInsert"], "silent": true }, // K to Like Break Insert
 
-    // Navigate to Errors
-    { "before": ["leader", "["], "commands": ["editor.action.marker.prev"] },
-    { "before": ["leader", "]"], "commands": ["editor.action.marker.next"] },
+    // Navigate between open files/buffers
+    { "before": ["[", "["], "commands": [":bprevious"] },
+    { "before": ["]", "]"], "commands": [":bnext"] },
 
     {
       "before": ["g", "h"],
@@ -179,7 +179,7 @@
   // === Ai Plugins ===
   "cody.autocomplete.enabled": false,
   "cody.telemetry.level": "off",
-  "cody.commandCodeLenses": true,
+  "cody.commandCodeLenses": false,
   "continue.enableTabAutocomplete": false,
   "continue.telemetryEnabled": false,
   "codium.codeCompletion.enable": false
