@@ -67,8 +67,6 @@
   "vim.camelCaseMotion.enable": true, // <leader>w or e or b or <operator>i<leader>w
   "vim.surround": true, // ys, cs, ds, S(Visual)
   // vim-textobj-arguments: enabled by default - <operator>ia, <operator>aa
-  "vim.argumentObjectOpeningDelimiters": ["(", "[", "{", "<", "'", "\"", "`"],
-  "vim.argumentObjectClosingDelimiters": [")", "]", "}", ">", "'", "\"", "`"],
   "vim.argumentObjectSeparators": [",", ";", ":", "/", "|"],
   // vim-commentary: enabled by default - gc(line comment), gc<motion>, gC(block comment)
   // vim-indent-object: enabled by default - <operator>ii, <operator>ai, <operator>aI
