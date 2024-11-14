@@ -1,5 +1,6 @@
 {
   // === Appearance ===
+  "workbench.settings.editor": "json",
   "workbench.colorTheme": "Aura Dark",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "Jetbrains Mono, 'Courier New', monospace", // Primary font: JetBrains Mono
@@ -7,14 +8,32 @@
   "editor.fontSize": 14,
   "editor.lineHeight": 22, // Line height for better spacing
   "editor.tabSize": 4,
+  "editor.guides.bracketPairs": true, // Highlight matching brackets
+  "editor.guides.indentation": true, // Show indentation guides for clean code structure
+  "editor.bracketPairColorization.enabled": true,
   "editor.minimap.enabled": false,
   "workbench.layoutControl.enabled": false,
   "editor.cursorSmoothCaretAnimation": "on", // Smooth cursor movement
   "editor.cursorBlinking": "smooth", // Smooth cursor blinking for visibility
   "editor.smoothScrolling": true, // Smooth scrolling for a polished feel
   "editor.wordWrap": "on",
-  "editor.guides.bracketPairs": true, // Highlight matching brackets
-  "editor.guides.indentation": true, // Show indentation guides for clean code structure
+  "editor.renderWhitespace": "none",
+  "editor.snippetSuggestions": "top",
+  "editor.stickyScroll.enabled": true,
+  "editor.suggestSelection": "first",
+
+  // Aura Dark theme customization
+  "workbench.colorCustomizations": {
+    "[Aura Dark]": {
+      "editor.background": "#110f17",
+      "terminal.background": "#110f17",
+      "activityBar.background": "#110f17",
+      "statusBar.background": "#110f17",
+      "editorGroupHeader.tabsBackground": "#110f17",
+      "tab.inactiveBackground": "#110f17",
+      "sideBar.background": "#110f17"
+    }
+  },
 
   // === Save and Formatting ===
   "files.autoSave": "off",
@@ -37,15 +56,22 @@
   // === Vim Extension Enhancements ===
   "editor.lineNumbers": "relative",
   "editor.cursorSurroundingLines": 7,
-  // "extensions.experimental.affinity": { "vscodevim.vim": 1 }, // To improve performance
+  "extensions.experimental.affinity": { "vscodevim.vim": 1 }, // To improve performance
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true, // Highlight all search results in Vim search
   "vim.incsearch": true, // Incremental search (shows matches as you type)
-  "vim.easymotion": true,
-  "vim.camelCaseMotion.enable": true,
   "vim.smartcase": true, // Case-insensitive search unless uppercase is used
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.color": "rgba(247, 118, 142, 0.5)",
+  "vim.easymotion": true, // press s in normal mode to initiate a search
+  "vim.camelCaseMotion.enable": true, // <leader>w or e or b or <operator>i<leader>w
+  "vim.surround": true, // ys, cs, ds, S(Visual)
+  // vim-textobj-arguments: enabled by default - <operator>ia, <operator>aa
+  "vim.argumentObjectOpeningDelimiters": ["(", "[", "{", "<", "'", "\"", "`"],
+  "vim.argumentObjectClosingDelimiters": [")", "]", "}", ">", "'", "\"", "`"],
+  "vim.argumentObjectSeparators": [",", ";", ":", "/", "|"],
+  // vim-commentary: enabled by default - gc(line comment), gc<motion>, gC(block comment)
+  // vim-indent-object: enabled by default - <operator>ii, <operator>ai, <operator>aI
 
   // === Vim Key Bindings ===
   "vim.leader": "<Space>",
@@ -74,6 +100,8 @@
 
   // === Vim Normal Mode Key Bindings ===
   "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["s"], "after": ["leader", "leader", "s"] }, // Navigation with Easy Motion
+
     // Use VSCode's native undo/redo stack instead of Vim's
     { "before": ["u"], "commands": ["undo"] },
     { "before": ["<C-r>"], "commands": ["redo"] },
@@ -86,9 +114,14 @@
     { "before": ["S-tab"], "commands": ["editor.action.outdentLines"] },
     { "before": ["tab"], "commands": ["editor.action.indentLines"] },
 
-    { "before": ["s"], "after": ["leader", "leader", "s"] }, // Navigation with Easy Motion
-
-    { "before": ["K"], "commands": ["lineBreakInsert"], "silent": true }, // K to Like Break Insert
+    {
+      "before": ["leader", "]"],
+      "commands": ["workbench.action.navigateForward"]
+    }, // Navigate Forward
+    {
+      "before": ["leader", "["],
+      "commands": ["workbench.action.navigateBack"]
+    }, // Navigate Backward
 
     // Navigate between open files/buffers
     { "before": ["[", "["], "commands": [":bprevious"] },
@@ -99,21 +132,19 @@
       "commands": ["editor.action.showHover"]
     }, // Show Hover Info
     {
-      "before": ["leader", "g", "h"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
+      "before": ["g", "d"],
+      "commands": ["editor.action.goToDeclaration"]
     }, // Show Definition
     {
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
     }, // Code Action
     {
-      "before": ["leader", "g", "c"],
-      "commands": ["editor.action.commentLine"]
-    }, // Comment Line
-    {
       "before": ["leader", "f", "f"],
       "commands": ["editor.action.formatDocument"]
     }, // Format File
+
+    { "before": ["K"], "commands": ["lineBreakInsert"], "silent": true }, // K to Like Break Insert
 
     // Remove highlights of Vim search results
     { "before": ["leader", "leader"], "commands": [":nohlsearch"] },
@@ -139,20 +170,15 @@
 
   // === Vim Visual Mode Key Bindings ===
   "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["s"], "after": ["leader", "leader", "s"] }, // Navigation with Easy Motion
+
     // Indentation
     { "before": ["S-tab"], "commands": ["editor.action.outdentLines"] },
     { "before": ["tab"], "commands": ["editor.action.indentLines"] },
 
-    { "before": ["s"], "after": ["leader", "leader", "s"] }, // Navigation with Easy Motion
-
     // Line movement
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
-
-    {
-      "before": ["leader", "g", "c"],
-      "commands": ["editor.action.commentLine"]
-    }, // Comment Line
 
     // Delete and copy lines
     { "before": ["space", "d"], "after": ["d"] },
