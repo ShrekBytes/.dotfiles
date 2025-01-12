@@ -1,0 +1,226 @@
+[
+  // Focus Editor
+  {
+    "key": "ctrl+m",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorFocus"
+  },
+  // Terminal Controls
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.terminal.kill"
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+
+  // Window Navigation
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "neovim.mode == normal"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "neovim.mode == normal"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown",
+    "when": "neovim.mode == normal"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp",
+    "when": "neovim.mode == normal"
+  },
+
+  // Navigate between Suggestions
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "neovim.mode == insert && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "neovim.mode == insert && suggestWidgetVisible"
+  },
+
+  // Navigate between Errors
+  {
+    "key": "ctrl+shift+j",
+    "command": "editor.action.marker.prev"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "editor.action.marker.next"
+  },
+
+  // File Explorer Operations
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "c",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "explorer.openAndPassFocus",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.toggleExpand",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
+  },
+
+  // Editor and Sidebar Controls
+
+  { "key": "ctrl+s", "command": "workbench.action.files.save" },
+  { "key": "ctrl+shift+s", "command": "workbench.action.files.saveAs" },
+
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.terminal.runActiveFile"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.files.action.focusFilesExplorer"
+      ]
+    },
+    "when": "neovim.mode == normal && (editorTextFocus || !inputFocus) && !sideBarFocus"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "sideBarFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "neovim.mode == normal && editorTextFocus && foldersViewVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "editor.action.clipboardPasteAction"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "workbench.files.action.compareWithSaved"
+  },
+  {
+    "key": "ctrl+space",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+shift+space",
+    "command": "toggle.window.commandCenter"
+  },
+  {
+    "key": "ctrl+shift+space",
+    "command": "workbench.action.quickOpenWithModes"
+  },
+
+  // Move Lines
+  {
+    "key": "alt+h",
+    "command": "editor.action.outdentLines",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "editor.action.indentLines",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+x",
+    "command": "windsurf.prioritized.chat.openFromTerminal",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+x",
+    "command": "windsurf.prioritized.chat.open",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+x",
+    "command": "-workbench.view.extensions",
+    "when": "viewContainer.workbench.view.extensions.enabled"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-windsurf.prioritized.chat.open",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-windsurf.prioritized.chat.openFromTerminal",
+    "when": "terminalFocus"
+  }
+]

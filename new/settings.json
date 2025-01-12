@@ -1,0 +1,88 @@
+{
+  // === Appearance ===
+  "workbench.settings.editor": "json",
+  "workbench.colorTheme": "Aura Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.tree.indent": 12,
+  "editor.fontFamily": "Jetbrains Mono, 'Courier New', monospace", // Primary font: JetBrains Mono
+  "editor.fontLigatures": false,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 22, // Line height for better spacing
+  "editor.tabSize": 4,
+  "editor.guides.bracketPairs": true, // Highlight matching brackets
+  "editor.guides.indentation": true, // Show indentation guides for clean code structure
+  "editor.bracketPairColorization.enabled": true,
+  "editor.minimap.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "editor.cursorSmoothCaretAnimation": "on", // Smooth cursor movement
+  "editor.cursorBlinking": "smooth", // Smooth cursor blinking for visibility
+  "editor.smoothScrolling": true, // Smooth scrolling for a polished feel
+  "editor.wordWrap": "on",
+  "editor.renderWhitespace": "none",
+  "editor.snippetSuggestions": "top",
+  //"editor.stickyScroll.enabled": true,
+  //"editor.suggestSelection": "first",
+  // Aura Dark theme customization
+  "workbench.colorCustomizations": {
+    "[Aura Dark]": {
+      "editor.background": "#110f17",
+      "terminal.background": "#110f17",
+      "activityBar.background": "#110f17",
+      "statusBar.background": "#110f17",
+      "editorGroupHeader.tabsBackground": "#110f17",
+      "tab.inactiveBackground": "#110f17",
+      "sideBar.background": "#110f17"
+    }
+  },
+  // Hides border on scrollbar
+  "editor.overviewRulerBorder": false,
+  "editor.scrollbar.verticalScrollbarSize": 7,
+
+  // === Save and Formatting ===
+  "files.autoSave": "afterDelay",
+  "editor.formatOnSave": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  // emmmet django-html value to html
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  // === Plugins ===
+  // Python // Python Debugger
+  // Live Server // Neovim // Error Lens
+  // Ruff // Prettier // Trailing Spaces
+  // Auto Close Tag // Highlight Matching Tag
+  // Cody // Cline // SuperMaven // Continue // Qodo Gen
+  // Aura Theme // Cherry // Material Icon Theme // Neofloss
+  // === Vim Extension Enhancements ===
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 7,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.ctrlKeysForInsertMode": [
+    "o" // Enter normal mode for a single command and return to insert mode
+  ],
+  "vscode-neovim.ctrlKeysForNormalMode": [
+    "d", // Scroll half a page down
+    "q", // visual block (same as C-v)
+    "u", // Scroll half a page up
+    "r", // Redo
+    "g" // Display the cursor position and file status
+  ],
+  // === Ai Plugins ===
+  "vscode-neovim.compositeKeys": {
+    "jk": {
+      "command": "vscode-neovim.escape"
+    }
+  },
+  "window.menuBarVisibility": "compact",
+  "windsurf.enableSupercomplete": false
+  // "workbench.sideBar.location": "right"
+}
