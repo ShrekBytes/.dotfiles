@@ -112,6 +112,7 @@ zstyle ':fzf-tab:complete:(bat|cat|ls|exa|eza|cp|mv|rm|nvim):*' fzf-preview '[[ 
 alias display_off='xset dpms force off'
 alias please='sudo'
 alias cls='clear'
+alias yo='pikaur'
 alias mirror="sudo cachyos-rate-mirrors"
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
