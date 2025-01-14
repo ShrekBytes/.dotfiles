@@ -99,7 +99,7 @@ setopt hist_find_no_dups
 # -------------------------
 # Completion Configuration
 # -------------------------
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'r:|?=** r:|=*'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$HOME/.cache/zsh/.zcompcache"
 zstyle ':fzf-tab:*' fzf-min-height 22
